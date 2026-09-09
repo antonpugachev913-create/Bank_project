@@ -3,3 +3,4 @@ max-line-length = 119
 ignore = E501,W503,F401
 exclude = .Stuff
 max-complexity = 10
+
