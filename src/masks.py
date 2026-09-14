@@ -1,17 +1,6 @@
 def get_mask_card_number(number: str) -> str:
     """Функция маскировки номера карты"""
-    num = ""
-    ans = []
-    for i in range(1, 17):
-        if 6 < i < 13:
-            num += "*"
-        else:
-            num += number[i - 1]
-        if i % 4 == 0:
-            ans.append(num)
-            num = ""
-    a = " ".join(ans)
-    return a
+    return f'{number[:4]} {number[4:6]}** **** {number[12:]}'
 
 
 def get_mask_account(number: str) -> str:
