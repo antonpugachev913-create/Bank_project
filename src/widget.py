@@ -16,3 +16,6 @@ def mask_account_card(data : str) -> str:
         return f'{final_name} {number[:4]} {number[4:6]}** **** {number[12:]}'
 
 
+print(mask_account_card('Счет 73654108430135874305'))
+print(mask_account_card('Visa Platinum 7000792289606361'))
+print(mask_account_card('Maestro 1596837868705199'))
