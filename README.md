@@ -1,19 +1,24 @@
-# Проект X
+# Название: Bank_project
 
 ## Описание:
 
-Проект X - это веб-приложение на Python для управления задачами и проектами.
+Bank_project - это проект, который позволяет совершать операции над банковскими счетами и картами.
 
 ## Установка:
 
 1. Клонируйте репозиторий:
 ```
-git clone https://github.com/username/project-x.git
+git clone https://github.com/antonpugachev913-create/Bank_project.git
 ```
-2. Установите зависимости:
+2. Установите poetry:
 ```
-pip install -r requirements.txt
+pip install poetry
 ```
+3. Установите зависимости:
+```
+poetry install
+```
+
 ## Использование:
 
 1. Откройте приложение в вашем веб-браузере.
