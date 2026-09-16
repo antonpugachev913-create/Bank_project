@@ -1,6 +1,6 @@
 def get_mask_card_number(number: str) -> str:
     """Функция маскировки номера карты"""
-    return f'{number[:4]} {number[4:6]}** **** {number[12:]}'
+    return f"{number[:4]} {number[4:6]}** **** {number[12:]}"
 
 
 def get_mask_account(number: str) -> str:
