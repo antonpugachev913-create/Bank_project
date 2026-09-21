@@ -6,3 +6,7 @@ def nums_card():
 @pytest.fixture
 def nums_account():
     return '73654108430135874305'
+
+@pytest.fixture
+def dates():
+    return '11.03.2024'
