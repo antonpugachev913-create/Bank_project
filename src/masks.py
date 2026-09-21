@@ -3,8 +3,8 @@ def get_mask_card_number(number: str) -> str:
     if not isinstance(number, str):
         raise TypeError
     if len(number) != 16:
-        return 'Incorrect length string'
-    return f'{number[:4]} {number[4:6]}** **** {number[12:]}'
+        return "Incorrect length string"
+    return f"{number[:4]} {number[4:6]}** **** {number[12:]}"
 
 
 def get_mask_account(number: str) -> str:
@@ -14,4 +14,3 @@ def get_mask_account(number: str) -> str:
     # if len(number) != 16:
     #     return 'Incorrect length string'
     return f"** {number[-4:]}"
-
