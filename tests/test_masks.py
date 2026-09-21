@@ -6,9 +6,9 @@ from src.masks import get_mask_account, get_mask_card_number
 def test_correct_mask_card(nums_card):
     assert get_mask_card_number(nums_card) == "7000 79** **** 6361"
     with pytest.raises(TypeError):
-        assert get_mask_card_number(123)
+        assert get_mask_card_number(123) # type: ignore
     with pytest.raises(TypeError):
-        assert get_mask_card_number([1, 2, 3, 4, 5])
+        assert get_mask_card_number([1, 2, 3, 4, 5]) # type: ignore
 
 
 def test_correct_mask_card_len():
@@ -31,6 +31,6 @@ def test_correct_mask_account_len():
 
 def test_correct_mask_account_type():
     with pytest.raises(TypeError):
-        assert get_mask_account(True)
+        assert get_mask_account(True) # type: ignore
     with pytest.raises(TypeError):
-        assert get_mask_account({1: 2, 2: 3})
+        assert get_mask_account({1: 2, 2: 3}) # type: ignore

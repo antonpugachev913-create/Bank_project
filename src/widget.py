@@ -2,7 +2,7 @@ def mask_account_card(data: str) -> str:
     if not isinstance(data, str):
         raise TypeError
     """Функция маскировки номера карты и счета"""
-    data = data.split()
+    dates = data.split()
     name = ""
     number = ""
     for char in data:
@@ -10,7 +10,7 @@ def mask_account_card(data: str) -> str:
             name = name + char + " "
         else:
             number += char
-    name = name.split()
+    names = name.split()
     final_name = " ".join(name)
     if final_name == "Счет":
         return f"Счет **{number[-4:]}"

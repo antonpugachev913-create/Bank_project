@@ -17,7 +17,7 @@ def test_mask_account_card(show, mask):
 
 def test_mask_account_card_type():
     with pytest.raises(TypeError):
-        assert mask_account_card((123, 12332))
+        assert mask_account_card((123, 12332)) # type: ignore
 
 
 def test_mask_account_card_zero():
@@ -35,5 +35,5 @@ def test_get_date_diff_len(dates):
 
 
 def test_get_date_cl():
-    assert get_date(123) == 0
-    assert get_date([]) == 0
+    assert get_date(123) == 0 # type: ignore
+    assert get_date([]) == 0 # type: ignore
