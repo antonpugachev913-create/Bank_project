@@ -37,5 +37,15 @@ line_length = 88
 [tool.mypy]
 python_version = "3.10"
 strict = true
+exclude = '''
+(?x)
+    \.idea/
+    | \.flake8/
+    \ .Stuff/
+    \ README.md/
+    \ Classroom/
+
+
+'''
 
 
