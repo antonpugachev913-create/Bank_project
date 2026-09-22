@@ -1,5 +1,7 @@
 def mask_account_card(data: str) -> str:
     """Функция маскировки номера карты и счета"""
+    if not isinstance(data, str):
+        raise TypeError
     tok = data.split()
     name = ""
     number = ""
@@ -23,6 +25,8 @@ def mask_account_card(data: str) -> str:
 
 def get_date(date: str) -> str:
     """Функция, изменяющая формат даты"""
+    if not isinstance(date, str) or len(date) < 10:
+        return "Incorrect date"
     year = date[:4]
     month = date[5:7]
     day = date[8:10]

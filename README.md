@@ -19,6 +19,20 @@ pip install poetry
 poetry install
 ```
 
+## Тестирование:
+1. Запуск тестирования всей программы:
+```
+poetry run pytest
+```
+2. Запуск тестирования c покрытием кода:
+```
+poetry run pytest --cov=src --cov-report=html
+```
+3. Запуск линтеров и проверки типов:
+```
+poetry run flake8
+poetry run mypy
+```
 ## Документация:
 В пакете ```src``` лежат модули кода:
 
