@@ -6,7 +6,7 @@ authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.14"
+python = "^3.12"
 
 [build-system]
 requires = ["poetry-core"]
@@ -47,5 +47,9 @@ exclude = '''
 
 
 '''
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
 
 
