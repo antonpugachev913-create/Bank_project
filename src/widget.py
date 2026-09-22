@@ -10,8 +10,6 @@ def mask_account_card(data: str) -> str:
             name = name + char + " "
         else:
             number += char
-    names = name.split()
-    final_name = " ".join(names)
     nami = name.split()
     final_name = " ".join(nami)
     if final_name == "Счет":
@@ -27,9 +25,7 @@ def mask_account_card(data: str) -> str:
 
 def get_date(date: str) -> str:
     """Функция, изменяющая формат даты"""
-    if not isinstance(date, str):
-        return 0
-    if len(date) < 10:
+    if not isinstance(date, str) or len(date < 10):
         return "Incorrect date"
     year = date[:4]
     month = date[5:7]
