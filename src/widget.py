@@ -5,13 +5,13 @@ def mask_account_card(data: str) -> str:
     dates = data.split()
     name = ""
     number = ""
-    for char in data:
+    for char in dates:
         if char.isalpha():
             name = name + char + " "
         else:
             number += char
     names = name.split()
-    final_name = " ".join(name)
+    final_name = " ".join(names)
     if final_name == "Счет":
         return f"Счет **{number[-4:]}"
     else:
