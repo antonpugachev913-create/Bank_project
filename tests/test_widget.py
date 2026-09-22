@@ -35,5 +35,5 @@ def test_get_date_diff_len(dates):
 
 
 def test_get_date_cl():
-    assert get_date(123) == 0 # type: ignore
-    assert get_date([]) == 0 # type: ignore
+    assert get_date(123) == "Incorrect date" # type: ignore
+    assert get_date([]) == "Incorrect date" # type: ignore
