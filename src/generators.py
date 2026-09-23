@@ -46,8 +46,8 @@ test = [
     }
 ]
 
-for i in range(3):
-    print(next(filter_by_currency(test, 'USD')))
+# for i in range(3):
+#     print(next(filter_by_currency(test, 'USD')))
 
 
 def transaction_descriptions(transactions: list[dict[str, Any]]) -> Iterator[str]:
@@ -57,16 +57,22 @@ def transaction_descriptions(transactions: list[dict[str, Any]]) -> Iterator[str
 
 
 descriptions = transaction_descriptions(test)
-for _ in range(5):
-    print(next(descriptions, 'End'))
+# for _ in range(5):
+#     print(next(descriptions, 'End'))
 
 #
-# def card_number_generator(start: int, end : int):
-#     """Генератор, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX """
-#     for char
-#
-#
-#
+def card_number_generator(start: int, end : int) -> Iterator[str]:
+    """Генератор, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX """
+    for num in range(start, end+1):
+        str_num = str(num)
+        l = len(str_num)
+        card_num = ('0' * (16 - l)) + str_num
+        final_num = f'{card_num[:4]} {card_num[4:8]} {card_num[8:12]} {card_num[12:]}'
+        yield final_num
+
+
+
+
 # for card_number in card_number_generator(1, 5):
 #     print(card_number)
 
