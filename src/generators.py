@@ -1,11 +1,14 @@
 from typing import Any
 from collections.abc import Iterator
 
-def filter_by_currency(transactions: list[dict[str, Any]], currency: str) -> Iterator[dict[str, Any]]:
+def filter_by_currency(transactions: list[dict[str, Any]], currency:str = '') -> Iterator[dict[str, Any]]:
     """Функция, возвращающая итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной"""
     for operation in transactions:
-        if operation["operationAmount"]["currency"]["name"] == currency and operation["operationAmount"]["currency"]["code"] == currency:
-            yield operation
+        try:
+            if operation["operationAmount"]["currency"]["code"] == currency:
+                yield operation
+        except KeyError:
+            continue
 
 test = [
     {
@@ -46,8 +49,6 @@ test = [
     }
 ]
 
-# for i in range(3):
-#     print(next(filter_by_currency(test, 'USD')))
 
 
 def transaction_descriptions(transactions: list[dict[str, Any]]) -> Iterator[str]:
@@ -57,8 +58,8 @@ def transaction_descriptions(transactions: list[dict[str, Any]]) -> Iterator[str
 
 
 descriptions = transaction_descriptions(test)
-# for _ in range(5):
-#     print(next(descriptions, 'End'))
+for _ in range(5):
+    print(next(descriptions, 'End'))
 
 #
 def card_number_generator(start: int, end : int) -> Iterator[str]:
