@@ -60,13 +60,13 @@ descriptions = transaction_descriptions(test)
 for _ in range(5):
     print(next(descriptions, 'End'))
 
-
-def card_number_generator(start: int, end : int):
-    """Генератор, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX """
-    for char
-
-
-
-for card_number in card_number_generator(1, 5):
-    print(card_number)
+#
+# def card_number_generator(start: int, end : int):
+#     """Генератор, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX """
+#     for char
+#
+#
+#
+# for card_number in card_number_generator(1, 5):
+#     print(card_number)
 
