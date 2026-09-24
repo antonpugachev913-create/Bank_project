@@ -150,3 +150,33 @@ def check_filter():
         }
     ]
 )
+
+@pytest.fixture
+def description():
+    return [
+    {
+        "id": 1,
+        "operationAmount": {"currency": {"code": "EUR"}},
+        "description": "Перевод другу"
+    },
+    {
+        "id": 2,
+        "operationAmount": {"currency": {"code": "USD"}},
+        "description": "Оплата подписки"
+    },
+    {
+        "id": 3,
+        "operationAmount": {"currency": {"code": "RUB"}},
+        "description": "Покупка продуктов"
+    },
+    {
+        "id": 4,
+        "operationAmount": {"currency": {"code": "USD"}},
+        "description": "Выплата зарплаты"
+    },
+    {
+        "id": 5,
+        "operationAmount": {"currency": {"code": "GBP"}},
+        "description": "Описание отсутствует"
+    }
+]

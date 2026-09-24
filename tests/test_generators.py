@@ -1,5 +1,5 @@
 import pytest
-from src.generators import filter_by_currency, transaction_descriptions
+from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 
 
 def test_filter_by_currency(check_filter):
@@ -66,6 +66,29 @@ def test_transaction_descriptions_size():
     with pytest.raises(StopIteration):
         next(us_iterator)
 
-@pytest.mark.parametrize()
-def
+@pytest.mark.parametrize ('index, another', [(0, "Перевод другу"),
+    (1, "Оплата подписки"),
+    (2, "Покупка продуктов"),
+    (3, "Выплата зарплаты"),
+    (4, "Описание отсутствует")
+
+])
+
+def test_transaction_description_big(index, another, description):
+    text = description[index]
+    usd_iterator = transaction_descriptions([text])
+    assert next(usd_iterator) == another
+
+
+def test_card_number_generator():
+    iterator = card_number_generator(1, 5)
+    assert next(iterator) == '0000 0000 0000 0001'
+    assert next(iterator) == '0000 0000 0000 0002'
+    assert next(iterator) == '0000 0000 0000 0003'
+    assert next(iterator) == '0000 0000 0000 0004'
+    assert next(iterator) == '0000 0000 0000 0005'
+    assert next(iterator, 'Bad') == 'Bad'
+
+
+
 
