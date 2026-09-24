@@ -39,7 +39,7 @@ def test_filter_by_state_type():
                     "date": "2018-10-14T08:21:33.419441",
                 },
             ],
-            123, # type: ignore
+            123,  # type: ignore
         )
 
 

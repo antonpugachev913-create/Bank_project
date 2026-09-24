@@ -1,3 +1,5 @@
+from tests.conftest import description
+
 # Название: Bank_project
 
 ## Описание:
@@ -44,3 +46,42 @@ poetry run mypy
 
 ```processing.py``` 
 Содержит функции фильтров по дате и статусу
+
+```generators.py```
+Содержит функции фильтрации транзакций по валюте, вывода описания транзакций, генерации номера карта для пользователя
+
+## Примеры использования генераторов (generators.py):
+#### 1. Фильтрация по валюте (`filter_by_currency`)
+```python
+from src.generators import filter_by_currency
+
+#Пример запуска
+usd_iterator = filter_by_currency(transactions, 'USD')
+
+#Получение следующего элемента
+el = next(usd_iterator)
+```
+
+#### 2. Вывод  описания транзакций
+```python
+from src.generators import transaction_descriptions
+
+#Пример запуска
+usd_iterator = filter_by_currency(transactions, 'OMG')
+
+
+#Получение следующего описания
+description = next(usd_iterator)
+```
+
+#### 3. Генерация номера карты
+```python
+from src.generators import card_number_generator
+
+#Запуск
+iterator = card_number_generator(1, 5)
+
+#Получение следующего номера карты
+number =  next(iterator)
+```
+
