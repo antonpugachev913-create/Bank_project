@@ -56,7 +56,9 @@ poetry run mypy
 from src.generators import filter_by_currency
 
 #Пример запуска
+
 usd_iterator = filter_by_currency(transactions, 'USD')
+
 
 #Получение следующего элемента
 el = next(usd_iterator)
