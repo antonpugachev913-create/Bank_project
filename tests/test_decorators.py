@@ -7,12 +7,12 @@ def test_decorators(capsys):
     def my_function(x, y):
         return x + y
 
-    res = my_function(1, 2)
+    my_function(1, 2)
     logi = capsys.readouterr()
     assert logi.out == "my_function ok\n"
 
     with pytest.raises(TypeError):
-         my_function(1, "2")
+        my_function(1, "2")
     logi = capsys.readouterr()
     assert logi.out == "my_function error: TypeError. Inputs: (1, '2'), {}\n"
 
