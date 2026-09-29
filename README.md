@@ -50,13 +50,18 @@ poetry run mypy
 ```generators.py```
 Содержит функции фильтрации транзакций по валюте, вывода описания транзакций, генерации номера карта для пользователя
 
+```decorators.py```
+Содержит декоратор, который автоматически логирует начало и конец выполнения функции, а также ее результаты или возникшие ошибки."""
+
 ## Примеры использования генераторов (generators.py):
 #### 1. Фильтрация по валюте (`filter_by_currency`)
 ```python
 from src.generators import filter_by_currency
 
 #Пример запуска
+
 usd_iterator = filter_by_currency(transactions, 'USD')
+
 
 #Получение следующего элемента
 el = next(usd_iterator)
@@ -83,5 +88,20 @@ iterator = card_number_generator(1, 5)
 
 #Получение следующего номера карты
 number =  next(iterator)
+```
+
+## Примеры использования генераторов (decorators.py):
+#### 1. Логирование начала и конца выполнения функции
+```python
+from src.decorators import log
+
+#Пример запуска
+
+@log(filename="mylog.txt")
+def my_function(x, y):
+    return x + y
+
+
+my_function(1, 2)
 ```
 
