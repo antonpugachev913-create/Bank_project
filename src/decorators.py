@@ -1,12 +1,14 @@
 from functools import wraps
+from collections.abc import Callable
+from typing import Any
 
 
-def log(filename=None):
+def log(filename: str | None = None) -> Callable[..., Any]:
     """Декоратор, который автоматически логирует начало и конец выполнения функции, а также ее результаты или возникшие ошибки."""
 
-    def my_decorator(function):
+    def my_decorator(function: Callable[..., Any]) -> Callable[..., Any]:
         @wraps(function)
-        def wrapped(*args, **kwargs):
+        def wrapped(*args: Any, **kwargs: Any) -> Any:
             name = function.__name__
             try:
                 res = function(*args, **kwargs)
