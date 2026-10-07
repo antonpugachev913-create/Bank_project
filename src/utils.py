@@ -4,6 +4,7 @@ from pathlib import Path
 
 
 def get_transaction_information(way):
+    """Функция, которая принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях"""
     try:
         file_path = Path(way)
         if not file_path.exists() or file_path.stat().st_size == 0:
