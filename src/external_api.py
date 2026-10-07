@@ -1,10 +1,11 @@
-import requests
 from os import getenv
 from typing import Any
+
+import requests
 from dotenv import load_dotenv
 
 load_dotenv()
-API_KEY = getenv('API_KEY')
+API_KEY = getenv("API_KEY")
 
 
 def get_total_transaction(transaction: dict[str, Any]) -> float:
@@ -14,20 +15,11 @@ def get_total_transaction(transaction: dict[str, Any]) -> float:
     if type_transaction == "RUB":
         return amount
     else:
-        url = 'https://api.apilayer.com/exchangerates_data/convert'
-        payload = {
-            "amount": f'{amount}',
-            "from": f'{type_transaction}',
-            "to": "RUB"
-        }
+        url = "https://api.apilayer.com/exchangerates_data/convert"
+        payload = {"amount": f"{amount}", "from": f"{type_transaction}", "to": "RUB"}
 
-        headers = {
-            'apikey': API_KEY
-        }
-
+        headers = {"apikey": API_KEY}
 
         response = requests.get(url, headers=headers, params=payload, timeout=5)
         res = response.json()
         return float(res["result"])
-
-
