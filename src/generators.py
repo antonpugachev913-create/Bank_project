@@ -20,7 +20,7 @@ def transaction_descriptions(transactions: list[dict[str, Any]]) -> Iterator[str
         yield operation["description"]
 
 
-#
+
 def card_number_generator(start: int, end: int) -> Iterator[str]:
     """Генератор, который выдает номера банковских карт в формате XXXX XXXX XXXX XXXX"""
     for num in range(start, end + 1):

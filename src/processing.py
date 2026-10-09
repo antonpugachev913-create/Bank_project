@@ -12,7 +12,6 @@ def filter_by_state(
         if d["state"] == key:
             new_dict.append(d)
     return new_dict
-#починил модуль
 
 def sort_by_date(dates: list[dict[str, Any]], res: bool = True) -> list[dict[str, Any]]:
     """Функция возвращающая список словарей, отсортированных по дате"""

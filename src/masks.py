@@ -38,4 +38,3 @@ def get_mask_account(number: str) -> str:
     logger.info("Возвращаем маскированный номер карты или счета и завершаем работу")
     return f"** {number[-4:]}"
 
-#delete test
