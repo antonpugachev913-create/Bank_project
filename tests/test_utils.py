@@ -7,8 +7,8 @@ import pytest
 from src.utils import get_transaction_information
 
 
-@patch("pathlib.Path.exists", return_value=True)
-@patch("pathlib.Path.stat")
+@patch("src.utils.Path.exists", return_value=True)
+@patch("src.utils.Path.stat")
 def test_utils(mock_stat, mock_exists, transaction):
     mock_stat.return_value.st_size = 100
 
@@ -23,22 +23,22 @@ def test_utils(mock_stat, mock_exists, transaction):
     assert result == transaction
 
 
-@patch("pathlib.Path.exists", return_value=False)
+@patch("src.utils.Path.exists", return_value=False)
 def test_not_file_utils(mock_exists):
     res = get_transaction_information("empty.json")
     assert res == []
 
 
-@patch("pathlib.Path.exists", return_value=True)
-@patch("pathlib.Path.stat")
+@patch("src.utils.Path.exists", return_value=True)
+@patch("src.utils.Path.stat")
 def test_empty_file_utils(mock_stat, mock_exists):
     mock_stat.return_value.st_size = 0
     res = get_transaction_information("test.json")
     assert res == []
 
 
-@patch("pathlib.Path.exists", return_value=True)
-@patch("pathlib.Path.stat")
+@patch("src.utils.Path.exists", return_value=True)
+@patch("src.utils.Path.stat")
 def test_break_file_utils(mock_stat, mock_exists):
     mock_stat.return_value.st_size = 100
     with (
