@@ -37,4 +37,3 @@ def get_mask_account(number: str) -> str:
         raise TypeError
     logger.info("Возвращаем маскированный номер карты или счета и завершаем работу")
     return f"** {number[-4:]}"
-
