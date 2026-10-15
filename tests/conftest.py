@@ -230,3 +230,67 @@ def transaction():
             "to": "Счет 75651667383060284188",
         },
     ]
+
+
+@pytest.fixture
+def bank_data():
+    return [
+        {
+            "id": 650703,
+            "state": "EXECUTED",
+            "date": "2023-09-05T11:30:32Z",
+            "amount": 16210,
+            "currency_code": "RUB",
+            "from": "Card 1234",
+            "to": "Account 5678",
+            "description": "Перевод организации",
+        },
+        {
+            "id": 3598919,
+            "state": "EXECUTED",
+            "date": "2020-12-06T23:00:58Z",
+            "amount": 29740,
+            "currency_code": "USD",
+            "from": "Card 4321",
+            "to": "Card 9876",
+            "description": "Покупка в интернет-магазине",
+        },
+        {
+            "id": 593027,
+            "state": "CANCELED",
+            "date": "2023-07-22T05:02:01Z",
+            "amount": 30368,
+            "currency_code": "RUB",
+            "from": "Account 1111",
+            "to": "Account 2222",
+            "description": "Перевод физическому лицу",
+        },
+        {
+            "id": 366176,
+            "state": "EXECUTED",
+            "date": "2020-08-02T09:35:18Z",
+            "amount": 500,
+            "currency_code": "RUB",
+            "from": "Card 5555",
+            "to": "Card 7777",
+            "description": "Оплата мобильной связи (+79991112233)",
+        },
+        {
+            "id": 1245327,
+            "state": "PENDING",
+            "date": "2026-03-09T00:56:48Z",
+            "amount": 1500,
+            "currency_code": "EUR",
+            "from": "Card 0000",
+            "to": "Account 9999",
+            "description": "",  # Пустая строка для проверки пустых значений
+        },
+    ]
+
+@pytest.fixture
+def categories():
+    return  [
+        "Перевод организации",
+        "Покупка в интернет-магазине",
+        "Открытие вклада"
+    ]
