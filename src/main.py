@@ -1,11 +1,13 @@
 from src.count_data_base import count_data_from_csv, count_data_from_excel
-from src.utils import get_transaction_information
-from src.processing import filter_by_state, sort_by_date
-from src.operations_bank_search import filter_bank_search
 from src.external_api import get_total_transaction
+from src.operations_bank_search import filter_bank_search
+from src.processing import filter_by_state, sort_by_date
+from src.utils import get_transaction_information
+from src.widget import get_date, mask_account_card
 
 
 def main():
+    """Функция, которая объединяет все модули проекта в 1 целое"""
     print("Привет! Добро пожаловать в программу работы с банковскими транзакциями.")
     print("Выберите необходимый пункт меню:")
     print("1. Получить информацию о транзакциях из JSON-файла")
@@ -128,23 +130,24 @@ def main():
     else:
         le = len(final_data_transactions)
         print(f"Всего банковских операций в выборке: {le}")
-        print(*final_data_transactions, sep="\n")
 
-        # 08.12.2019 Открытие вклада
-        # Счет **4321
-        # Сумма: 40542 руб.
-        #
-        # 12.11.2019 Перевод с карты на карту
-        # MasterCard 7771 27** **** 3727 -> Visa Platinum 1293 38** **** 9203
-        # Сумма: 130 USD
-        #
-        # 18.07.2018 Перевод организации
-        # Visa Platinum 7492 65** **** 7202 -> Счет **0034
-        # Сумма: 8390 руб.
-        #
-        # 03.06.2018 Перевод со счета на счет
-        # Счет **2935 -> Счет **4321
-        # Сумма: 8200 EUR
+        for data_transaction in final_data_transactions:
+            date = data_transaction.get("date", "")
+            transaction_description = data_transaction.get("description", "")
+            trans_date = get_date(date)
+            print(f"{trans_date} {transaction_description}")
+
+            account_card_from = mask_account_card(data_transaction.get("from", ""))
+            account_card_to = mask_account_card(data_transaction.get("to", ""))
+
+            if account_card_from == "":
+                print(account_card_from)
+            else:
+                print(f"{account_card_from} -> {account_card_to}")
+
+            amount = get_total_transaction(data_transaction)
+            print(amount)
+            print()
 
 
 if __name__ == "__main__":
