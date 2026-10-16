@@ -1,9 +1,9 @@
 import json
 import logging
+import pathlib
 from json import JSONDecodeError, load
-from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 LOG_FILE_PATH = BASE_DIR / "logs" / "masks.log"
 
 logger = logging.getLogger("utils")
@@ -20,11 +20,11 @@ def get_transaction_information(way):
     """Функция, которая принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях"""
     logger.info("Начало работы")
     try:
-        file_path = Path(way)
+        file_path = pathlib.Path(__file__).parent.parent / way
         if not file_path.exists() or file_path.stat().st_size == 0:
             logger.warning("Такого файла не существует или он пустой")
             return []
-        with open(way, "r", encoding="utf-8") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             out = load(file)
             if not isinstance(out, list):
                 logger.warning("Неверный тип данных, проверьте свой ввод")

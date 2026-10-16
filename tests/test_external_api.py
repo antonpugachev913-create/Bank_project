@@ -20,8 +20,8 @@ def test_external_api_rub():
     assert get_total_transaction(tr) == 31957.58
 
 
-@patch("requests.get")
-def test_external_api_alt_val(mock_response):
+@patch("src.external_api.requests.get")
+def test_external_api_alt_val(mock_get):
     trans = {
         "id": 41428829,
         "state": "EXECUTED",
@@ -34,6 +34,8 @@ def test_external_api_alt_val(mock_response):
         "from": "MasterCard 7158300734726758",
         "to": "Счет 35383033474447895560",
     }
-    mock_response.return_value = mock_response
+    mock_response = mock_get.return_value
+    mock_response.status_code = 200
     mock_response.json.return_value = {"result": 793362.21}
-    assert (get_total_transaction(trans)) == 793362.21
+
+    assert get_total_transaction(trans) == 793362.21
