@@ -9,8 +9,10 @@ def filter_by_state(
         raise TypeError
     new_dict = []
     for d in dictionaries:
-        if d["state"] == key:
-            new_dict.append(d)
+        cur_key = d.get("state")
+        if isinstance(cur_key, str):
+            if cur_key.lower() == key.lower():
+                new_dict.append(d)
     return new_dict
 
 
