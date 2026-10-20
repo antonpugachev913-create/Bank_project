@@ -165,3 +165,129 @@ def description():
             "description": "Описание отсутствует",
         },
     ]
+
+
+@pytest.fixture
+def transaction():
+    return [
+        {
+            "id": 441945886,
+            "state": "EXECUTED",
+            "date": "2019-08-26T10:50:58.294041",
+            "operationAmount": {
+                "amount": "31957.58",
+                "currency": {"name": "руб.", "code": "RUB"},
+            },
+            "description": "Перевод организации",
+            "from": "Maestro 1596837868705199",
+            "to": "Счет 64686473678894779589",
+        },
+        {
+            "id": 41428829,
+            "state": "EXECUTED",
+            "date": "2019-07-03T18:35:29.512364",
+            "operationAmount": {
+                "amount": "8221.37",
+                "currency": {"name": "USD", "code": "USD"},
+            },
+            "description": "Перевод организации",
+            "from": "MasterCard 7158300734726758",
+            "to": "Счет 35383033474447895560",
+        },
+        {
+            "id": 939719570,
+            "state": "EXECUTED",
+            "date": "2018-06-30T02:08:58.425572",
+            "operationAmount": {
+                "amount": "9824.07",
+                "currency": {"name": "USD", "code": "USD"},
+            },
+            "description": "Перевод организации",
+            "from": "Счет 75106830613657916952",
+            "to": "Счет 11776614605963066702",
+        },
+        {
+            "id": 587085106,
+            "state": "EXECUTED",
+            "date": "2018-03-23T10:45:06.972075",
+            "operationAmount": {
+                "amount": "48223.05",
+                "currency": {"name": "руб.", "code": "RUB"},
+            },
+            "description": "Открытие вклада",
+            "to": "Счет 41421565395219882431",
+        },
+        {
+            "id": 142264268,
+            "state": "EXECUTED",
+            "date": "2019-04-04T23:20:05.206878",
+            "operationAmount": {
+                "amount": "79114.93",
+                "currency": {"name": "USD", "code": "USD"},
+            },
+            "description": "Перевод со счета на счет",
+            "from": "Счет 19708645243227258542",
+            "to": "Счет 75651667383060284188",
+        },
+    ]
+
+
+@pytest.fixture
+def bank_data():
+    return [
+        {
+            "id": 650703,
+            "state": "EXECUTED",
+            "date": "2023-09-05T11:30:32Z",
+            "amount": 16210,
+            "currency_code": "RUB",
+            "from": "Card 1234",
+            "to": "Account 5678",
+            "description": "Перевод организации",
+        },
+        {
+            "id": 3598919,
+            "state": "EXECUTED",
+            "date": "2020-12-06T23:00:58Z",
+            "amount": 29740,
+            "currency_code": "USD",
+            "from": "Card 4321",
+            "to": "Card 9876",
+            "description": "Покупка в интернет-магазине",
+        },
+        {
+            "id": 593027,
+            "state": "CANCELED",
+            "date": "2023-07-22T05:02:01Z",
+            "amount": 30368,
+            "currency_code": "RUB",
+            "from": "Account 1111",
+            "to": "Account 2222",
+            "description": "Перевод физическому лицу",
+        },
+        {
+            "id": 366176,
+            "state": "EXECUTED",
+            "date": "2020-08-02T09:35:18Z",
+            "amount": 500,
+            "currency_code": "RUB",
+            "from": "Card 5555",
+            "to": "Card 7777",
+            "description": "Оплата мобильной связи (+79991112233)",
+        },
+        {
+            "id": 1245327,
+            "state": "PENDING",
+            "date": "2026-03-09T00:56:48Z",
+            "amount": 1500,
+            "currency_code": "EUR",
+            "from": "Card 0000",
+            "to": "Account 9999",
+            "description": "",  # Пустая строка для проверки пустых значений
+        },
+    ]
+
+
+@pytest.fixture
+def categories():
+    return ["Перевод организации", "Покупка в интернет-магазине", "Открытие вклада"]
